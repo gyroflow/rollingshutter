@@ -22,10 +22,14 @@ optional arguments:
 
 ### Capture video
 * Set up an LED to blink a high rate (say 1000 Hz), this can be done with an Arduino or similar. `rs_blinker` contains an example program for the Arduino Uno/Nano. For new implementations, it's recommended to double check frequency with a multimeter/oscilloscope/logic analyzer.
-* Set camera shutter speed as high as possible and not a divisor of blinking frequency. So not 250, 500, or 1000, with anything above 1000 being preferred. If no manual exposure is possible on the camera, use multiple and/or bright LED's to force a higher shutter speed.
-* Film the LED with the camera lens covered by something white/diffuse. Alternatively remove lens and expose sensor directly. The goal is to uniformly light the whole sensor. You should see horizontal lines forming in the video.
+* Set camera shutter speed as high as possible and not a divisor of blinking frequency. So not 1/250, 1/500, or 1/1000, with anything above 1/1000 being preferred. If no manual exposure is possible on the camera, use multiple and/or bright LED's to force a higher shutter speed.
+* Film the LED with the camera lens covered by something white/diffuse. Alternatively remove lens and expose sensor directly. The goal is to light the whole sensor as uniformly as possible. You should see horizontal lines forming in the video.
 * Each video only needs to be 4-5 seconds long. It can also be useful to say the camera setting while recording it.
 * Higher blinking frequencies give a more precise estimate, but require higher camera shutter speeds. Make sure to pass the correct blinking frequency to the script if not using the default 1000 Hz.
+
+Example frame captured with the Nikon 1 J1 with a 1/16000 shutter speed. The high shutter speed leads to clear and crisp bands.
+![frame](./images/frame_example.png)
+For shutter speeds below 1/1000, these bands will overlap. But as long as 1000 Hz isn't close to a multiple of the shutter speed, e.g. the shutter speed isn't 1/250, 1/500, or 1/1000 of a second, bands should still be detectable.
 
 Note: Rolling shutter readout may vary with the resolution, framerate, and cropping setting.
 
