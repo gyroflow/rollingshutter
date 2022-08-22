@@ -21,10 +21,11 @@ optional arguments:
 ## Guide:
 
 ### Capture video
-* Set up an LED to blink a high rate (say 1000 Hz), this can be done with an Arduino or similar. (TODO: add example setup/code).
+* Set up an LED to blink a high rate (say 1000 Hz), this can be done with an Arduino or similar. `rs_blinker` contains an example program for the Arduino Uno/Nano. For new implementations, it's recommended to double check frequency with a multimeter/oscilloscope/logic analyzer.
 * Set camera shutter speed as high as possible and not a divisor of blinking frequency. So not 250, 500, or 1000, with anything above 1000 being preferred. If no manual exposure is possible on the camera, use multiple and/or bright LED's to force a higher shutter speed.
 * Film the LED with the camera lens covered by something white/diffuse. Alternatively remove lens and expose sensor directly. The goal is to uniformly light the whole sensor. You should see horizontal lines forming in the video.
 * Each video only needs to be 4-5 seconds long. It can also be useful to say the camera setting while recording it.
+* Higher blinking frequencies give a more precise estimate, but require higher camera shutter speeds. Make sure to pass the correct blinking frequency to the script if not using the default 1000 Hz.
 
 Note: Rolling shutter readout may vary with the resolution, framerate, and cropping setting.
 
